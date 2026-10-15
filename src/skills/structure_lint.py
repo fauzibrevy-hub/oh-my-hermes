@@ -98,7 +98,21 @@ STRUCTURE_LINT_RULE_IDS = (
 # pointers become the `skill_view(name=..., file_path=...)` call that loads
 # the rail. Same reason as the entry above: the pointer is read where the
 # rail is needed. Warranted always-loaded growth, not drift.
-STRUCTURE_LINT_SKILL_BODY_BYTE_CEILING = 27_300
+#
+# 27_300 -> 27_600: the shipped `id` trigger language pack. A pack's phrases
+# merge into the catalog, so `ultrawork`'s "Strong routing signals" line now
+# carries its six Indonesian phrasings as well, and the body measures 27_529.
+# The next hundred, 27_500, is under the measured body, so the ceiling is the
+# hundred above it, the same rule as the 27_000 entry. This is product data
+# rather than prose, and it is the ceiling's first growth from a language
+# pack -- `ja`, `zh` and `ko` each contributed to the same line and left
+# `ultrawork` at 27_273, 27 bytes under the old ceiling. Every pack that
+# covers `ultrawork` therefore costs it ~250 bytes and will breach the
+# ceiling again: the line is a per-language cost the pack design mandates
+# (`docs/routing-quality.md`), so the next language will need the same raise
+# or a structural change to how the line renders. Warranted always-loaded
+# growth, not drift.
+STRUCTURE_LINT_SKILL_BODY_BYTE_CEILING = 27_600
 _PICKER_SAFE_TRIGGER = re.compile(r"^[0-9A-Za-z\uac00-\ud7a3][0-9A-Za-z\uac00-\ud7a3 _.-]*$")
 # `license` and `author` sit between the description and `metadata`; each
 # scalar is one line, so the two scalars stop at their own line end.
