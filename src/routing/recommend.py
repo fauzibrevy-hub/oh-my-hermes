@@ -2532,6 +2532,19 @@ def held_back_trigger_tokens(skill: str) -> frozenset[str]:
     return _trigger_token_holdback_for(skill)
 
 
+def held_back_pack_trigger_tokens(skill: str) -> frozenset[str]:
+    """The same set, restricted to what a trigger language pack holds back.
+
+    A reader that has to reproduce the pre-pack view of a skill -- the lexical
+    index, which must not re-rank an English message because a Latin-script
+    pack widened its triggers field -- subtracts this and not the union: the
+    built-in `_WHOLE_PHRASE_ONLY_TRIGGER_TOKENS` table is baseline behaviour and
+    removing its entries would move the index the pack is supposed to leave
+    alone.
+    """
+    return _pack_trigger_token_holdback().get(skill, frozenset())
+
+
 def has_strong_named_catalog_owner(query: str | RoutingQuery) -> bool:
     """Return whether one catalog name and a second semantic signal match."""
 

@@ -2072,6 +2072,30 @@ All notable changes will be documented here.
   promotion fit check and the eviction plan's shortfall and reclaimable
   figures included) and reads with `utf-8-sig`, so a byte-order mark no
   longer sticks to the first entry.
+- **Indonesian ships as a trigger language pack.** `src/routing/trigger_packs/id.json`
+  covers the same 21 skills the `ja` and `zh` seed packs define, in 130 phrases
+  a speaker of the language would type (`tinjau kode`, `audit aksesibilitas`,
+  `build gagal`, `lakukan riset mendalam`). `id` is the first pack in a
+  Latin-script language, which the earlier three could not exercise: a Latin
+  phrase shares the router's token space with English, so every word a phrase
+  introduces would otherwise score on an unrelated English message. The pack
+  therefore holds each introduced token back through `whole_phrase_only_tokens`
+  (399 entries, one list per covered skill), and the hold-back now also keeps
+  those tokens out of the lexical index: `_document` in
+  `src/routing/lexical_shortlist.py` subtracts `held_back_pack_trigger_tokens`,
+  the pack-restricted half of the set `_anchor_vocabulary` already subtracts,
+  because a widened `triggers` field moved the BM25 length that re-ranks an
+  English clarify shortlist. Measured on the two routing corpora: 1,553 of
+  1,553 cases pass with the pack installed, identical to the run without it,
+  where the pack with no hold-back list failed 16. A token the skill's own
+  name, description, or `use_when` already carries is never held back — that
+  word reaches the router through `metadata_tokens` regardless, and removing
+  it from the anchor vocabulary dropped `native-debugging` from a shortlist it
+  belongs in. The pack is scoped to the seed surface on measurement, not
+  taste: a 60-skill draft pushed `full_capability_skill_section_chars` over by
+  506 and the core-profile body and `references/workflow-registry.md` ceilings
+  over with it, and every 60-skill trim that fit left at most 138 bytes of
+  room in the registry ceiling.
 
 ## 3.0.2 - 2026-10-11
 

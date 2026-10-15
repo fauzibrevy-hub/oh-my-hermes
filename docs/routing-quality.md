@@ -89,6 +89,19 @@ Two things to get right in the phrases themselves:
   ordinary questions in that language still get answered rather than routed,
   and to `ROUTING_INTERVENTION_CASES` proving the lanes you claim are reached.
   Both corpora assert exact counts; update them in the same commit.
+- **A Latin-script pack holds its own tokens back.** `ja`, `zh` and `ko` are
+  written in scripts the English catalog does not use, so their phrases add no
+  English token. A pack in a Latin-script language shares the token space, and
+  every word its phrases introduce then scores on an unrelated English message:
+  a first `id` draft moved 16 of the 1,553 routing cases, naming
+  `feedback-triage` for "fix the crash barrier outside the payment office" and
+  dropping `data-share-review` into a clarify shortlist it does not belong in.
+  List each introduced token under that skill's `whole_phrase_only_tokens` so
+  it credits the skill only inside a whole phrase, then re-run both corpora and
+  require the result the pack's absence gives. Two tokens are never held back:
+  one the skill already carries as a trigger, and one its own name, description
+  or `use_when` carries, which reaches the router as `metadata_tokens` anyway
+  and whose removal only empties the skill's anchor vocabulary.
 
 Two gates hold the mechanism together. `tests/test_trigger_language_packs.py`
 proves every shipped phrase is live in its skill's scored surface and that

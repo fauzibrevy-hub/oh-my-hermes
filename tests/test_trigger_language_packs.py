@@ -22,10 +22,11 @@ import unittest
 from pathlib import Path
 
 from omh.commands.language import LANGUAGE_CODES
-from omh.routing.localization import normalized_phrase
+from omh.routing.localization import normalized_phrase, routing_tokens
 from omh.routing.recommend import (
     _prepared_routable_definitions,
     _tokens,
+    held_back_pack_trigger_tokens,
     recommend_skills,
 )
 from omh.routing.trigger_language_packs import (
@@ -212,6 +213,62 @@ class ShippedTriggerPackTests(unittest.TestCase):
             "author believes is live: " + "; ".join(dead[:20]),
         )
 
+    def test_a_latin_script_pack_holds_every_token_it_introduces(self) -> None:
+        """A Latin-script pack adds phrases, never loose tokens.
+
+        `ja`, `zh` and `ko` are written in scripts the English catalog does not
+        use, so their phrases cannot add an English token and the three packs
+        never had to say so. A pack in a Latin-script language shares the token
+        space, and a word its phrases introduce then scores on an unrelated
+        English message: an `id` draft with no hold-back list moved 16 of the
+        1,553 routing cases, and the two this gate is written against named
+        `feedback-triage` for "fix the crash barrier outside the payment
+        office" and `data-share-review` in a clarify shortlist.
+
+        The rule is the one the format already states -- a token credits its
+        skill only inside a whole phrase -- and it is checkable here rather
+        than only in a corpus run. Two tokens are exempt and both are named in
+        `docs/routing-quality.md`: one the skill already carries as a trigger,
+        and one its own name, description or `use_when` carries, which reaches
+        the router as `metadata_tokens` regardless and whose hold-back would
+        only empty the skill's anchor vocabulary.
+        """
+        prepared_by_name = {
+            prepared.definition.name: prepared for prepared in _prepared_routable_definitions()
+        }
+        leaked: list[str] = []
+        for pack in shipped_trigger_language_packs(_known_skills()):
+            for skill, phrases in pack.skills:
+                prepared = prepared_by_name.get(skill)
+                if prepared is None:
+                    continue
+                # The catalog already carries this pack's phrases, so the
+                # pre-pack trigger tokens have to be rebuilt from the entries
+                # the pack did not write.
+                authored = tuple(
+                    trigger for trigger in prepared.definition.triggers if trigger not in set(phrases)
+                )
+                introduced = set()
+                for phrase in phrases:
+                    introduced |= set(routing_tokens(phrase))
+                # Only Latin tokens cross into the English token space; a
+                # Hangul or Han token can never appear in an English message,
+                # which is why `ja`, `zh` and `ko` need no hold-back list.
+                introduced = {token for token in introduced if token.isascii()}
+                introduced -= _tokens(" ".join(authored))
+                introduced -= prepared.metadata_tokens
+                leaked.extend(
+                    f"{pack.language}/{skill}: {token!r}"
+                    for token in sorted(introduced - held_back_pack_trigger_tokens(skill))
+                )
+
+        self.assertEqual(
+            leaked,
+            [],
+            "Tokens a Latin-script pack introduces that still score on their own: "
+            + "; ".join(leaked[:20]),
+        )
+
     def test_the_seed_packs_reach_their_lane_end_to_end(self) -> None:
         """One live probe per seed language, through the ordinary router."""
         probes = (
@@ -224,6 +281,10 @@ class ShippedTriggerPackTests(unittest.TestCase):
             ("zh", "段错误和核心转储怎么排查", "native-debugging"),
             ("zh", "前端落地页需要响应式布局", "frontend"),
             ("ko", "빌드 실패 원인 봐줘", "build-failure-triage"),
+            ("id", "lakukan riset mendalam", "research"),
+            ("id", "review kode ini", "code-review"),
+            ("id", "audit aksesibilitas", "accessibility-audit"),
+            ("id", "build gagal", "build-failure-triage"),
         )
 
         for language, message, expected in probes:

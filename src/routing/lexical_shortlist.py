@@ -37,7 +37,7 @@ import re
 import unicodedata
 
 from .localization import routing_terms
-from .recommend import held_back_trigger_tokens
+from .recommend import held_back_pack_trigger_tokens, held_back_trigger_tokens
 from ..skills.catalog import routable_definitions
 from ..skills.catalog_types import HERMES_SCANNER_EXCLUDED_TERMS, SkillDefinition
 
@@ -222,10 +222,24 @@ class _LexicalIndex:
 def _document(definition: SkillDefinition) -> tuple[dict[str, float], float]:
     weights: Counter[str] = Counter()
     length = 0.0
+    # A word the scorer credits to this skill only inside a whole phrase is not
+    # a word a user says about it, so it must not enter the index either -- the
+    # same reason `_anchor_vocabulary` below subtracts the same set. Without
+    # this, a Latin-script language pack widens the triggers field with its own
+    # vocabulary and moves this skill's BM25 length, which re-ranks an ordinary
+    # English message: `fix the crash barrier outside the payment office` named
+    # `feedback-triage` in its shortlist purely because `id.json` grew sixty
+    # documents. Non-Latin packs never reached here (`_field_text` keeps ASCII
+    # triggers only), so the subtraction is what lets a Latin-script pack ship
+    # at all.
+    held_back = {stem(token) for token in held_back_pack_trigger_tokens(definition.name)}
     for field, weight in FIELD_WEIGHTS:
         # A word counts once per field, so a long description that repeats a
         # word does not outweigh a name that states it.
-        for term in set(lexical_terms(_field_text(definition, field))) - SIDECAR_EXCLUDED_TERMS:
+        terms = set(lexical_terms(_field_text(definition, field))) - SIDECAR_EXCLUDED_TERMS
+        if field == "triggers":
+            terms -= held_back
+        for term in terms:
             weights[term] += weight
             length += weight
     return dict(weights), length

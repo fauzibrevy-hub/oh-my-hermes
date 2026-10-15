@@ -753,7 +753,14 @@ PLUGIN_TOOL_SCHEMA_CHAR_LIMIT = 64651
 # grounded-citations, curator-ledger, and document-producer rules, and the
 # presence clauses sit past the rows' bounds or render byte-identical and
 # move nothing here. Re-derived from the producer.
-FULL_CAPABILITY_SKILL_SECTION_CHAR_LIMIT = 501990
+# 501990 -> 502048: the shipped `id` (Indonesian) trigger language pack. Its
+# phrases merge into the catalog, so the 21 skills the ja/zh seed packs already
+# cover carry their Indonesian phrasings in the row's router words too (+58
+# across those rows). The pack is scoped to that seed surface for exactly this
+# reason: a 60-skill draft measured +506 here and pushed the core-profile body
+# and `references/workflow-registry.md` ceilings over as well. Re-derived from
+# the producer.
+FULL_CAPABILITY_SKILL_SECTION_CHAR_LIMIT = 502048
 FULL_CAPABILITY_SKILL_ITEM_CHAR_LIMIT = 9000
 # 100000 -> 102070: the same three domain workflows each add one standalone
 # capability row, again measured on the merged tree; warranted growth for three

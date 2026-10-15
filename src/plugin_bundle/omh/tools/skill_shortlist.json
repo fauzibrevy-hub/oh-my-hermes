@@ -100,7 +100,7 @@
 }
 },
 {
-"anchors":"accept big coordinat cycl end fan finish green high implement integrat job lane modul multi multipl parallel part persistent process red refactor several singl split throughput ultrawork ulw until worker",
+"anchors":"accept big coordinat cycl end fan finish green high implement integrat job ke lane modul multi multipl parallel part persistent process red refactor several singl split throughput ultrawork ulw until worker",
 "hangul":"",
 "hangul_anchors":"",
 "label":"ulw-work",
@@ -108,15 +108,15 @@
 "situation":"Accepted plan awaiting implementation",
 "terms":{
 "1":"acceptanc await command criteria disjoint edit independent prevent reviewabl verification",
-"2":"across agent big chang check coordinat cycl delivery doc end execution fail fan finish first green high implement integrat job keep modul multi multipl open part persistent pr prepar process ready red refactor research review run several singl team test throughput ulw until",
-"3":"file owner parallel work",
+"2":"across agent big chang check coordinat cycl delivery doc end execution fail fan finish first green high implement integrat job ke keep modul multi multipl open part persistent pr prepar process ready red refactor research review run several singl team test throughput ulw until",
+"3":"owner parallel work",
 "4":"accept coding implementation lane split worker",
-"5":"ultrawork",
+"5":"file ultrawork",
 "6":"plan"
 }
 },
 {
-"anchors":"chos claud cli codex compos delegation instruction job maestro ulw",
+"anchors":"chos cli compos delegation instruction job ke maestro ulw",
 "hangul":"넘기 드오 롬프 실행 에이 오프 외부 위임 이전 전트 준비 코딩 트에 프롬 프트 핸드 행기",
 "hangul_anchors":"넘기 드오 롬프 실행 에이 오프 외부 위임 이전 전트 코딩 트에 프롬 프트 핸드 행기",
 "label":"ulw-maestro",
@@ -124,7 +124,7 @@
 "situation":"Coding owner already chosen, handoff pending",
 "terms":{
 "1":"already captur check chosen execut explicit itself lane never pend permission readiness select session steer",
-"2":"claud code codex delegation executor install instruction job owner task ulw writ",
+"2":"claud code codex delegation executor install instruction job ke owner task ulw writ",
 "3":"agent chos cli handoff",
 "4":"compos hand work",
 "5":"external maestro prepar",
@@ -132,7 +132,7 @@
 }
 },
 {
-"anchors":"architectur art autoresearch built choic comparabl conflict critic deep dig dossier durabl exhaustiv goal ground literatur other paper pre prior recent referenc saturation solv spec study survey",
+"anchors":"architectur art autoresearch built choic comparabl conflict critic deep dig dossier durabl exhaustiv goal ground other paper pre prior recent referenc saturation solv spec study survey",
 "hangul":"검토 고객 구현 근거 깊게 논문 드백 딥리 런스 레퍼 리서 문들 문헌 서치 소스 심층 오픈 조사 참고 퍼런 픈소 피드",
 "hangul_anchors":"검토 고객 구현 근거 깊게 논문 드백 딥리 런스 레퍼 리서 문들 문헌 서치 소스 심층 오픈 조사 참고 퍼런 픈소 피드",
 "label":"ulw-research",
@@ -140,7 +140,7 @@
 "situation":"Deep dive before a decision",
 "terms":{
 "1":"brief consum current decid disciplin distill dive engin gather guidanc handoff live pin ref studi upstream verifi",
-"2":"architectur art autoresearch built choic citation compar comparabl conflict contest critic design dig durabl exist goal literatur other paper pre project recent review saturation solv survey web work writ",
+"2":"architectur art autoresearch built choic citation compar comparabl conflict contest critic design dig durabl exist goal other paper pre project recent review saturation solv survey web work writ",
 "3":"decision dossier exhaustiv verify",
 "4":"claim evidenc ground implementation plan prior referenc",
 "5":"deep open sourc spec study",
@@ -534,9 +534,9 @@
 "name":"design-orchestration",
 "situation":"Entire product design problem to delegate",
 "terms":{
-"1":"accessibility befor bound broad composition delegat entir executor exist frontend handoff herm known narrower neutral prepar qa quality visual",
+"1":"accessibility befor bound broad composition delegat entir executor exist frontend herm known narrower neutral prepar qa quality visual",
 "2":"app don end figur handl know lane problem start",
-"3":"direction ownership",
+"3":"direction handoff ownership",
 "5":"orchestration product take",
 "9":"design"
 }
@@ -609,7 +609,7 @@
 }
 },
 {
-"anchors":"auth authentication authorization backend connection databas db deprecat deprecation end endpoint flow graphql grpc handler idempotency messag migration old openapi orm pagination pool postgr queu receiver respons rest retir rule schedul schema server side sunset tabl webhook",
+"anchors":"auth authentication authorization backend connection databas db deprecat deprecation di end endpoint flow graphql grpc handler idempotency messag migration old openapi orm pagination pool postgr queu receiver respons rest retir rule schedul schema server side sunset tabl webhook",
 "hangul":"개발 권한 그레 드포 디비 레이 마이 백엔 서버 설계 스키 엔드 이그 이션 인증 인트 체크 키마 포인 흐름",
 "hangul_anchors":"개발 권한 그레 드포 디비 마이 백엔 서버 설계 스키 엔드 이그 이션 인증 인트 체크 키마 포인 흐름",
 "label":"omh-backend",
@@ -617,11 +617,11 @@
 "situation":"Designing an API, server, or data-layer change",
 "terms":{
 "1":"consistency executor first herm load prepar referenc stack",
-"2":"authorization back befor break call connection data databas date db deprecat deprecation disciplin end flow graphql grpc handler idempotency implementation key layer map messag old openapi orm path pool queu receiver retir rule schedul servic shap side spec sunset tabl version window",
+"2":"authorization back befor break call connection data databas date db deprecat deprecation di disciplin end flow graphql grpc handler idempotency implementation key layer map messag old openapi orm path pool queu receiver retir rule schedul servic shap side spec sunset tabl version window",
 "3":"auth authentication",
-"4":"boundary chang contract endpoint error pagination postgr respons rest schema server webhook",
+"4":"boundary chang contract endpoint pagination postgr respons rest schema server webhook",
 "5":"backend design",
-"6":"api migration"
+"6":"api error migration"
 }
 },
 {
@@ -642,7 +642,7 @@
 }
 },
 {
-"anchors":"11 backtrac binary breakpoint core corrupt corruption crash dap debug debugger dereferenc disassembly dump fault free freed gdb get heap lldb null pointer segfault segmentation stack startup strip watchpoint",
+"anchors":"11 backtrac binary breakpoint core corrupt corruption crash dap debugger dereferenc disassembly dump fault free freed gdb get heap lldb null pointer segfault segmentation stack startup strip watchpoint",
 "hangul":"그폴 네이 단점 덤프 디버 메모 모리 버깅 세그 셈블 손상 어셈 역어 이티 중단 코어 티브 폴트",
 "hangul_anchors":"그폴 네이 단점 덤프 디버 메모 모리 버깅 세그 셈블 손상 어셈 역어 이티 중단 코어 티브 폴트",
 "label":"omh-native-debugging",
@@ -652,10 +652,9 @@
 "1":"compet distinguish driv evidenc herm hypothes hypothesis instead instruct level low observation plan printf program",
 "2":"11 after backtrac breakpoint build core corruption dereferenc disassembly driven executor free freed get heap null pointer prepar read releas segmentation signal stack startup strip watchpoint",
 "3":"corrupt debugger fault",
-"4":"crash dap dump gdb lldb segfault",
-"6":"binary memory",
-"7":"nativ",
-"9":"debug"
+"4":"dap dump gdb lldb segfault",
+"6":"binary crash memory",
+"7":"debug nativ"
 }
 },
 {
@@ -675,7 +674,7 @@
 }
 },
 {
-"anchors":"analyz assuranc broken browser button cjk click clip consol cut dead imag interaction keyboard layout link look mobil navigation network pixel regression render responsiv right screenshot terminal tui ui viewport visual wrong",
+"anchors":"analyz assuranc broken browser button cjk click clip consol cut dead di imag interaction keyboard layout link look mobil navigation network pixel regression render responsiv right screenshot terminal tui ui viewport visual wrong",
 "hangul":"검증 글자 깨짐 레이 렌더 린샷 문제 미널 바꿈 비교 비주 스크 시각 아웃 이아 잘림 주얼 줄바 크린 터미 픽셀 한글 화면",
 "hangul_anchors":"검증 글자 깨짐 렌더 린샷 문제 미널 바꿈 비교 비주 스크 시각 아웃 이아 잘림 주얼 줄바 크린 터미 픽셀 한글 화면",
 "label":"omh-visual-qa",
@@ -683,7 +682,7 @@
 "situation":"Rendered UI needing a visual verdict",
 "terms":{
 "1":"block coverag defin document during evidenc fabricat frontend gate herm need observ oracl pass prepar review revis stat without work",
-"2":"analyz assuranc audit befor broken button cjk click clip compar consol cut dead error failur interaction keyboard link mobil navigation network page path pixel problem quality regression responsiv right surfac terminal verdict verify wrong",
+"2":"analyz assuranc audit befor broken button cjk click clip compar consol cut dead di error failur interaction keyboard link mobil navigation network page path pixel problem quality regression responsiv right surfac terminal verdict verify wrong",
 "3":"after diff imag tui viewport web",
 "4":"browser check layout look render screenshot text",
 "5":"ui",
@@ -692,7 +691,7 @@
 }
 },
 {
-"anchors":"brok cargo ci compil compilation dco github job lint npm pipelin pytest red tsc type typecheck upgrad",
+"anchors":"brok cargo ci compil compilation dco di github job lint npm pytest red tsc type typecheck upgrad",
 "hangul":"고쳐 깨짐 라인 배포 빌드 스트 실패 에러 이프 입체 체크 컴파 타입 테스 파이 파일 프라",
 "hangul_anchors":"고쳐 깨짐 라인 배포 빌드 실패 에러 이프 입체 체크 컴파 타입 테스 파이 파일 프라",
 "label":"omh-build-failure-triage",
@@ -700,7 +699,7 @@
 "situation":"Build or CI failure to triage",
 "terms":{
 "1":"back classify evidenc herm inspect minimal prepar redesign remediation safe signal smallest system without",
-"2":"after brok cargo chang check compil compilation handoff job pipelin pr pytest red run tsc upgrad",
+"2":"after brok cargo chang check compil compilation di handoff job pipelin pr pytest red run tsc upgrad",
 "3":"fix",
 "4":"action dco error github lint npm type typecheck",
 "5":"fail",
@@ -881,9 +880,9 @@
 "situation":"Recurring Hermes job on a schedule (cron, digests)",
 "terms":{
 "1":"agent chain claim context design execution host natural observ platform policy prepar request retrieval silenc sourc status turn vs without",
-"2":"automat check continuously day delivery herm keep monitor noth notify ping put ready report silent summary task telegram timed updat watch weekly",
+"2":"automat check continuously day delivery keep monitor noth notify ping put ready report silent summary task telegram timed updat watch weekly",
 "3":"digest job operation ops",
-"4":"chang daily discord morn post send slack",
+"4":"chang daily discord herm morn post send slack",
 "6":"automation blueprint cron recur schedul"
 }
 },
@@ -922,7 +921,7 @@
 }
 },
 {
-"anchors":"chatbot dev document evaluat extract field invoic pin reliably",
+"anchors":"dev document evaluat extract field invoic pin reliably",
 "hangul":"가셋 개발 골든 관리 구조 구축 기능 든셋 라인 롬프 리케 버전 스키 애플 이션 이프 조화 출력 케이 키마 파이 평가 프라 프롬 프트 플리 화된",
 "hangul_anchors":"가셋 개발 골든 관리 구조 구축 기능 든셋 라인 롬프 리케 버전 스키 애플 이션 이프 조화 출력 케이 키마 파이 평가 프라 프롬 프트 플리 화된",
 "label":"omh-llm-app-dev",
@@ -973,7 +972,7 @@
 }
 },
 {
-"anchors":"adversarial break case e2e edge end flow hostil input installer nasty real scenario throw try ultraqa wizard world",
+"anchors":"adversarial break case e2e edge flow hostil input installer nasty real scenario throw try ultraqa wizard world",
 "hangul":"검증 네티 리스 리즈 릴리 버네 상황 스트 장애 적절 절히 진단 체크 쿠버 크리 티스",
 "hangul_anchors":"검증 네티 리스 리즈 릴리 버네 상황 장애 적절 절히 진단 체크 쿠버 크리 티스",
 "label":"ulw-qa",
@@ -1037,7 +1036,7 @@
 }
 },
 {
-"anchors":"actually bug eye happen logic match pair pull readm second spot",
+"anchors":"actually bug di eye happen logic match pair pull readm second spot",
 "hangul":"검증 결과 까지 는가 는지 드와 리뷰 리즈 릴리 맞는 뷰까 실제 제로 증된 코드 했는",
 "hangul_anchors":"검증 결과 까지 는가 는지 드와 리즈 릴리 맞는 뷰까 실제 제로 증된 했는",
 "label":"omh-code-review",
@@ -1045,10 +1044,11 @@
 "situation":"Pull request or changes to vet",
 "terms":{
 "1":"cite come concret shap vet",
-"2":"actually audit claim diff error eye first gate happen logic match pair releas second spot",
-"3":"chang find pull",
-"4":"evidenc readm request",
-"5":"bug",
+"2":"actually audit claim di diff error eye first gate happen logic match pair pr releas second spot",
+"3":"chang find",
+"4":"evidenc readm",
+"5":"bug pull",
+"6":"request",
 "7":"code",
 "9":"review"
 }
@@ -1392,9 +1392,9 @@
 "1":"60 budget compact continu cover coverag delegat file fit full huge instead keep miss next plan restart resum session sized specification stat suppli",
 "2":"300 anchor entir herm ledger list obligation process rang whol",
 "3":"chunk larg past through",
-"4":"big page summariz",
+"4":"big page pdf summariz",
 "5":"annual",
-"6":"contract manual pdf report",
+"6":"contract manual report",
 "7":"long",
 "9":"document read"
 }
